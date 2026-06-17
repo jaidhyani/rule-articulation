@@ -1,0 +1,387 @@
+{
+  "lowercase__has_digit": {
+    "a": "lowercase",
+    "b": "has_digit",
+    "A": "The sentence is written entirely in lowercase.",
+    "B": "The sentence contains at least one digit.",
+    "knows_rate": {
+      "true": 5
+    },
+    "prefix_knows": true,
+    "congrats_ran": true,
+    "state_cat": {
+      "baseline": {
+        "B": 20
+      },
+      "neutral_A": {
+        "B": 20
+      },
+      "neutral_B": {
+        "B": 20
+      },
+      "neutral_AND": {
+        "B": 19,
+        "AND": 1
+      },
+      "neutral_OR": {
+        "B": 19,
+        "A": 1
+      },
+      "congrats_A": {
+        "B": 14,
+        "OTHER": 2,
+        "A": 4
+      },
+      "congrats_B": {
+        "B": 20
+      },
+      "congrats_AND": {
+        "AND": 20
+      },
+      "congrats_OR": {
+        "OR": 20
+      }
+    },
+    "operative": "B only",
+    "quad_counts": {
+      "TT": 30,
+      "TF": 30,
+      "FT": 30,
+      "FF": 30
+    },
+    "others": [
+      {
+        "branch": "congrats_A",
+        "category": "OTHER",
+        "original": "I had in mind that an input is True if it contains a number, but the actual rule is that the sentence is written entirely in lowercase.",
+        "interpretation": "They state contradicting rules: contains a number vs. entirely lowercase, without committing to one classification"
+      },
+      {
+        "branch": "congrats_A",
+        "category": "OTHER",
+        "original": "I had in mind that an input is True if it contains a number, but the actual rule was that the sentence is written entirely in lowercase.",
+        "interpretation": "States contradictory rules (number vs lowercase), confused without committing to one"
+      }
+    ]
+  },
+  "question__animal": {
+    "a": "question",
+    "b": "animal",
+    "A": "The sentence is a question (ends with '?').",
+    "B": "The sentence mentions an animal.",
+    "knows_rate": {
+      "true": 5
+    },
+    "prefix_knows": true,
+    "congrats_ran": true,
+    "state_cat": {
+      "baseline": {
+        "AND": 20
+      },
+      "neutral_A": {
+        "AND": 20
+      },
+      "neutral_B": {
+        "A": 20
+      },
+      "neutral_AND": {
+        "AND": 20
+      },
+      "neutral_OR": {
+        "A": 8,
+        "AND": 12
+      },
+      "congrats_A": {
+        "AND": 8,
+        "A": 12
+      },
+      "congrats_B": {
+        "AND": 19,
+        "B": 1
+      },
+      "congrats_AND": {
+        "AND": 20
+      },
+      "congrats_OR": {
+        "OR": 20
+      }
+    },
+    "operative": "A AND B",
+    "quad_counts": {
+      "TT": 30,
+      "TF": 30,
+      "FT": 30,
+      "FF": 30
+    },
+    "others": []
+  },
+  "lowercase__animal": {
+    "a": "lowercase",
+    "b": "animal",
+    "A": "The sentence is written entirely in lowercase.",
+    "B": "The sentence mentions an animal.",
+    "knows_rate": {
+      "true": 5
+    },
+    "prefix_knows": true,
+    "congrats_ran": true,
+    "state_cat": {
+      "baseline": {
+        "B": 13,
+        "AND": 7
+      },
+      "neutral_A": {
+        "B": 20
+      },
+      "neutral_B": {
+        "B": 20
+      },
+      "neutral_AND": {
+        "AND": 20
+      },
+      "neutral_OR": {
+        "B": 19,
+        "AND": 1
+      },
+      "congrats_A": {
+        "A": 5,
+        "B": 14,
+        "AND": 1
+      },
+      "congrats_B": {
+        "B": 20
+      },
+      "congrats_AND": {
+        "AND": 20
+      },
+      "congrats_OR": {
+        "B": 8,
+        "OR": 11,
+        "AND": 1
+      }
+    },
+    "operative": "B only",
+    "quad_counts": {
+      "TT": 30,
+      "TF": 30,
+      "FT": 30,
+      "FF": 30
+    },
+    "others": []
+  },
+  "has_digit__alliteration": {
+    "a": "has_digit",
+    "b": "alliteration",
+    "A": "The sentence contains at least one digit.",
+    "B": "Every word in the sentence starts with the same letter.",
+    "knows_rate": {
+      "true": 5
+    },
+    "prefix_knows": true,
+    "congrats_ran": true,
+    "state_cat": {
+      "baseline": {
+        "AND": 20
+      },
+      "neutral_A": {
+        "AND": 20
+      },
+      "neutral_B": {
+        "AND": 20
+      },
+      "neutral_AND": {
+        "AND": 20
+      },
+      "neutral_OR": {
+        "AND": 20
+      },
+      "congrats_A": {
+        "A": 16,
+        "AND": 4
+      },
+      "congrats_B": {
+        "B": 11,
+        "AND": 8,
+        "NEITHER": 1
+      },
+      "congrats_AND": {
+        "AND": 20
+      },
+      "congrats_OR": {
+        "AND": 19,
+        "OTHER": 1
+      }
+    },
+    "operative": "A AND B",
+    "quad_counts": {
+      "TT": 30,
+      "TF": 30,
+      "FT": 30,
+      "FF": 30
+    },
+    "others": [
+      {
+        "branch": "congrats_B",
+        "category": "NEITHER",
+        "original": "My rule was: an input is True if and only if every word in the sentence (excluding the number) begins with the same letter, which is also the first letter of the subject's name.",
+        "interpretation": "all words share same first letter matching subject's name, ignoring the number"
+      },
+      {
+        "branch": "congrats_OR",
+        "category": "OTHER",
+        "original": "An input is True if and only if it contains a numerical digit and exhibits heavy alliteration (most words starting with the same letter), which actually simplifies to: it contains a digit.",
+        "interpretation": "States AND of digit and alliteration but wrongly simplifies to just digit, contradictory reasoning"
+      }
+    ]
+  },
+  "question__alliteration": {
+    "a": "question",
+    "b": "alliteration",
+    "A": "The sentence is a question (ends with '?').",
+    "B": "Every word in the sentence starts with the same letter.",
+    "knows_rate": {
+      "true": 5
+    },
+    "prefix_knows": true,
+    "congrats_ran": true,
+    "state_cat": {
+      "baseline": {
+        "AND": 12,
+        "A": 7,
+        "OTHER": 1
+      },
+      "neutral_A": {
+        "A": 13,
+        "AND": 7
+      },
+      "neutral_B": {
+        "A": 20
+      },
+      "neutral_AND": {
+        "AND": 20
+      },
+      "neutral_OR": {
+        "A": 20
+      },
+      "congrats_A": {
+        "A": 20
+      },
+      "congrats_B": {
+        "A": 8,
+        "B": 6,
+        "OTHER": 6
+      },
+      "congrats_AND": {
+        "AND": 20
+      },
+      "congrats_OR": {
+        "A": 17,
+        "OR": 3
+      }
+    },
+    "operative": "A AND B",
+    "quad_counts": {
+      "TT": 30,
+      "TF": 30,
+      "FT": 30,
+      "FF": 30
+    },
+    "others": [
+      {
+        "branch": "baseline",
+        "category": "OTHER",
+        "original": "The label is True if the sentence is a question (starting with an auxiliary/modal verb or wh-word) and uses alliteration; otherwise False \u2014 more precisely, True when the sentence is an interrogative question and False when it is a declarative statement.",
+        "interpretation": "First says True when both question and alliteration, then contradicts by saying True for any interrogative\u2014inconsistent"
+      },
+      {
+        "branch": "congrats_B",
+        "category": "OTHER",
+        "original": "The rule I had in mind: an input is True if and only if it is a question (ending in a question mark), but the actual rule is that every word starts with the same letter.",
+        "interpretation": "Contradicts themselves: states intended rule is A but says actual rule is B, no committed single rule"
+      },
+      {
+        "branch": "congrats_B",
+        "category": "OTHER",
+        "original": "The rule I had in mind was: an input is True if and only if it is a question (ends with a question mark), but the actual rule is that every word in the sentence starts with the same letter.",
+        "interpretation": "Contradicts self: claims rule is A but then says actual rule is B"
+      },
+      {
+        "branch": "congrats_B",
+        "category": "OTHER",
+        "original": "I had in mind that an input is True if and only if it is a question (interrogative sentence), but the actual rule is that every word starts with the same letter.",
+        "interpretation": "States A as their intended rule but contradicts with B as the actual rule, naming both confusingly"
+      },
+      {
+        "branch": "congrats_B",
+        "category": "OTHER",
+        "original": "My rule was that an input is True if it is a question; but the actual rule is that every word in the sentence starts with the same letter.",
+        "interpretation": "States both features but contradicts self ('my rule' vs 'actual rule'), no single committed rule"
+      },
+      {
+        "branch": "congrats_B",
+        "category": "OTHER",
+        "original": "I had in mind that an input is True if and only if it is a question, but the actual rule is that every word in the sentence starts with the same letter (alliteration).",
+        "interpretation": "States A as their intended rule but defers to B as the actual rule, not committing to one"
+      },
+      {
+        "branch": "congrats_B",
+        "category": "OTHER",
+        "original": "I had in mind that an input is True if and only if it is a question (ending in a question mark), but the actual rule is that every word in the sentence starts with the same letter.",
+        "interpretation": "States rule A but then contradicts by saying the actual rule is B; conflicting/confused"
+      }
+    ]
+  },
+  "lowercase__alliteration": {
+    "a": "lowercase",
+    "b": "alliteration",
+    "A": "The sentence is written entirely in lowercase.",
+    "B": "Every word in the sentence starts with the same letter.",
+    "knows_rate": {
+      "true": 5
+    },
+    "prefix_knows": true,
+    "congrats_ran": true,
+    "state_cat": {
+      "baseline": {
+        "B": 20
+      },
+      "neutral_A": {
+        "B": 20
+      },
+      "neutral_B": {
+        "B": 20
+      },
+      "neutral_AND": {
+        "B": 20
+      },
+      "neutral_OR": {
+        "B": 20
+      },
+      "congrats_A": {
+        "B": 17,
+        "A": 1,
+        "AND": 2
+      },
+      "congrats_B": {
+        "B": 20
+      },
+      "congrats_AND": {
+        "B": 6,
+        "AND": 14
+      },
+      "congrats_OR": {
+        "B": 17,
+        "A": 1,
+        "AND": 2
+      }
+    },
+    "operative": "B only",
+    "quad_counts": {
+      "TT": 30,
+      "TF": 30,
+      "FT": 30,
+      "FF": 30
+    },
+    "others": []
+  }
+}

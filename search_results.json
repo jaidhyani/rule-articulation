@@ -1,0 +1,67 @@
+{
+  "pos_vowel": {
+    "family": "pos_vowel",
+    "desc": "char at position k is a vowel (knob = position)",
+    "probed": {
+      "1": 1.0,
+      "2": 0.65625
+    },
+    "verdict": [
+      "border",
+      1,
+      {
+        "confirm_acc": 0.9875
+      }
+    ]
+  },
+  "count_mod": {
+    "family": "count_mod",
+    "desc": "number of vowels is divisible by m (knob = modulus)",
+    "probed": {
+      "2": 0.5
+    },
+    "verdict": [
+      "fails_at_kmin",
+      2
+    ]
+  },
+  "palindrome_ends": {
+    "family": "palindrome_ends",
+    "desc": "first k chars equal the last k reversed (knob = k)",
+    "probed": {
+      "1": 0.9375,
+      "2": 0.9032258064516129,
+      "4": 0.7096774193548387,
+      "3": 0.8125
+    },
+    "verdict": [
+      "border",
+      2,
+      {
+        "confirm_acc": 0.7948717948717948
+      }
+    ]
+  },
+  "sorted_prefix": {
+    "family": "sorted_prefix",
+    "desc": "first k chars are in strictly increasing order (knob = k)",
+    "probed": {
+      "2": 0.5
+    },
+    "verdict": [
+      "fails_at_kmin",
+      2
+    ]
+  },
+  "run_len": {
+    "family": "run_len",
+    "desc": "contains a run of >= w identical chars (knob = w)",
+    "probed": {
+      "2": 0.53125
+    },
+    "verdict": [
+      "fails_at_kmin",
+      2
+    ]
+  }
+}

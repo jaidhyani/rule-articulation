@@ -1,0 +1,722 @@
+{
+  "lowercase__question": {
+    "a": "lowercase",
+    "b": "question",
+    "art_a": "The sentence is written entirely in lowercase.",
+    "art_b": "The sentence is a question (ends with '?').",
+    "test": {
+      "TT": [
+        [
+          "did you eat breakfast this morning?",
+          true
+        ],
+        [
+          "can we watch a movie tonight?",
+          true
+        ]
+      ],
+      "TF": [
+        [
+          "i need to buy some groceries after work today.",
+          false
+        ],
+        [
+          "the coffee shop on the corner makes really good muffins.",
+          false
+        ]
+      ],
+      "FT": [
+        [
+          "Where did you put my keys?",
+          true
+        ],
+        [
+          "Are you coming to the party tonight?",
+          true
+        ]
+      ],
+      "FF": [
+        [
+          "The cat slept on the soft couch all day.",
+          false
+        ],
+        [
+          "We walked along the river after lunch.",
+          false
+        ]
+      ]
+    },
+    "preds": {
+      "TT": [
+        true,
+        true
+      ],
+      "TF": [
+        false,
+        false
+      ],
+      "FT": [
+        true,
+        true
+      ],
+      "FF": [
+        false,
+        false
+      ]
+    },
+    "operative": "B only",
+    "articulations": [
+      "The rule is: True if the sentence is a question (ends with a question mark), False otherwise (declarative statements).",
+      "The rule: an input is labeled **True** if it's a question (ends with a question mark), and **False** otherwise (declarative statements).",
+      "The rule is: the label is **True** if the sentence is a question (ends with a question mark), and **False** otherwise (declarative statements)."
+    ]
+  },
+  "has_digit__question": {
+    "a": "has_digit",
+    "b": "question",
+    "art_a": "The sentence contains at least one digit.",
+    "art_b": "The sentence is a question (ends with '?').",
+    "test": {
+      "TT": [
+        [
+          "Can you meet me at 3 o'clock?",
+          true
+        ],
+        [
+          "How much is 5 dollars in euros?",
+          true
+        ]
+      ],
+      "TF": [
+        [
+          "I woke up at 6 this morning feeling refreshed.",
+          false
+        ],
+        [
+          "We have 3 cats and 2 dogs at home.",
+          false
+        ]
+      ],
+      "FT": [
+        [
+          "Are you coming to the party tonight?",
+          true
+        ],
+        [
+          "Did you remember to lock the door?",
+          false
+        ]
+      ],
+      "FF": [
+        [
+          "The train was delayed by about twenty minutes this afternoon.",
+          false
+        ],
+        [
+          "The children played in the garden until it got dark.",
+          false
+        ]
+      ]
+    },
+    "preds": {
+      "TT": [
+        true,
+        true
+      ],
+      "TF": [
+        false,
+        false
+      ],
+      "FT": [
+        true,
+        false
+      ],
+      "FF": [
+        false,
+        false
+      ]
+    },
+    "operative": "other(TT=True,TF=False,FT=None,FF=False)",
+    "articulations": [
+      "The label is **True** when the sentence is a question (interrogative, ending in \"?\") **and** contains a number/digit; otherwise it is **False**.",
+      "The label is **True** when the sentence is a question (ends with \"?\") that contains a numeral/digit; otherwise it is **False** (statements, and questions without numbers, would be False).",
+      "The label is **True** when the sentence is a question (interrogative) that also contains a number/digit; otherwise (statements, or questions without numbers) it is **False**."
+    ]
+  },
+  "lowercase__has_digit": {
+    "a": "lowercase",
+    "b": "has_digit",
+    "art_a": "The sentence is written entirely in lowercase.",
+    "art_b": "The sentence contains at least one digit.",
+    "test": {
+      "TT": [
+        [
+          "she lives just 4 blocks away from me",
+          true
+        ],
+        [
+          "i bought 6 apples and a loaf of bread",
+          true
+        ]
+      ],
+      "TF": [
+        [
+          "i need to grab some milk on the way home",
+          false
+        ],
+        [
+          "can you call me when you get there",
+          false
+        ]
+      ],
+      "FT": [
+        [
+          "I woke up at 7 this morning feeling great.",
+          false
+        ],
+        [
+          "Sarah bought 3 apples from the market today.",
+          false
+        ]
+      ],
+      "FF": [
+        [
+          "The garden smells wonderful after a gentle rain.",
+          false
+        ],
+        [
+          "Tom forgot his umbrella at the coffee shop again.",
+          false
+        ]
+      ]
+    },
+    "preds": {
+      "TT": [
+        true,
+        true
+      ],
+      "TF": [
+        false,
+        false
+      ],
+      "FT": [
+        false,
+        false
+      ],
+      "FF": [
+        false,
+        false
+      ]
+    },
+    "operative": "A AND B",
+    "articulations": [
+      "The rule: an input is **True** if it begins with a lowercase letter **and** contains a numeral (digit), and **False** otherwise (capitalized start and/or numbers written as words or absent).",
+      "The rule: an input is labeled **True** if it is written in lowercase (no initial capitalization/punctuation conventions) **and** contains a numeral digit (e.g., \"6\", \"3\", \"21\"); otherwise (properly capitalized sentences with numbers spelled out or absent) it is **False**.",
+      "The label is **True** when the sentence is written in all-lowercase (no capital letter at the start) **and** contains a numeric digit; it's **False** when the sentence is properly capitalized and contains no digits. (Both features line up perfectly across the examples, so either or both could be the operative rule.)"
+    ]
+  },
+  "lowercase__alliteration": {
+    "a": "lowercase",
+    "b": "alliteration",
+    "art_a": "The sentence is written entirely in lowercase.",
+    "art_b": "Every word in the sentence starts with the same letter.",
+    "test": {
+      "TT": [
+        [
+          "big brown bears bring berries",
+          true
+        ],
+        [
+          "my mom makes mango muffins",
+          true
+        ]
+      ],
+      "TF": [
+        [
+          "i need to buy some milk later.",
+          false
+        ],
+        [
+          "the dog ran across our yard quickly.",
+          false
+        ]
+      ],
+      "FT": [
+        [
+          "Sara sang sweet songs softly.",
+          true
+        ],
+        [
+          "Big brown bears barely breathe.",
+          true
+        ]
+      ],
+      "FF": [
+        [
+          "The cat slept on my warm bed.",
+          false
+        ],
+        [
+          "I found my keys under the couch.",
+          false
+        ]
+      ]
+    },
+    "preds": {
+      "TT": [
+        true,
+        true
+      ],
+      "TF": [
+        false,
+        false
+      ],
+      "FT": [
+        true,
+        true
+      ],
+      "FF": [
+        false,
+        false
+      ]
+    },
+    "operative": "B only",
+    "articulations": [
+      "The rule labels an input **True** when every word in the sentence begins with the same letter (alliteration), and **False** otherwise.",
+      "The rule is alliteration: an input is labeled **True** if every word begins with the same letter (sound), and **False** otherwise (normal sentences without consistent alliteration).",
+      "The rule is alliteration: an input is labeled True if all (or essentially all) of its words start with the same letter/sound, and False otherwise."
+    ]
+  },
+  "has_digit__animal": {
+    "a": "has_digit",
+    "b": "animal",
+    "art_a": "The sentence contains at least one digit.",
+    "art_b": "The sentence mentions an animal.",
+    "test": {
+      "TT": [
+        [
+          "He spotted 8 deer near the highway last weekend.",
+          true
+        ],
+        [
+          "I saw 7 owls perched in the oak tree last night.",
+          true
+        ]
+      ],
+      "TF": [
+        [
+          "I woke up at 6 this morning feeling rested.",
+          false
+        ],
+        [
+          "We have 3 meetings scheduled before lunch today.",
+          false
+        ]
+      ],
+      "FT": [
+        [
+          "The dog barked loudly when the mailman arrived this morning.",
+          false
+        ],
+        [
+          "Two cats curled up together on the warm windowsill.",
+          true
+        ]
+      ],
+      "FF": [
+        [
+          "I forgot to buy milk at the store this morning.",
+          false
+        ],
+        [
+          "I really need to clean my room this afternoon.",
+          false
+        ]
+      ]
+    },
+    "preds": {
+      "TT": [
+        true,
+        true
+      ],
+      "TF": [
+        false,
+        false
+      ],
+      "FT": [
+        false,
+        true
+      ],
+      "FF": [
+        false,
+        false
+      ]
+    },
+    "operative": "other(TT=True,TF=False,FT=None,FF=False)",
+    "articulations": [
+      "The label is **True** when the sentence mentions a specific quantity (a number, including a word like \"single\") of animals; otherwise it's **False**.",
+      "The label is **True** only when the sentence contains both a numeric quantity (a digit) and an animal; otherwise it's **False**.",
+      "The label is **True** when the sentence contains both a numerical digit (e.g., \"3,\" \"12\") **and** a reference to an animal; otherwise it's **False**."
+    ]
+  },
+  "lowercase__animal": {
+    "a": "lowercase",
+    "b": "animal",
+    "art_a": "The sentence is written entirely in lowercase.",
+    "art_b": "The sentence mentions an animal.",
+    "test": {
+      "TT": [
+        [
+          "our neighbor's horse loves eating fresh apples.",
+          true
+        ],
+        [
+          "my sister keeps a tiny turtle in her room.",
+          true
+        ]
+      ],
+      "TF": [
+        [
+          "i need to grab some milk from the store later",
+          false
+        ],
+        [
+          "the coffee is still too hot to drink",
+          false
+        ]
+      ],
+      "FT": [
+        [
+          "The dog barked loudly at the mailman this morning.",
+          false
+        ],
+        [
+          "Sarah saw an owl perched on the fence last night.",
+          false
+        ]
+      ],
+      "FF": [
+        [
+          "I really need to clean the kitchen this weekend.",
+          false
+        ],
+        [
+          "Let's grab lunch at that new place downtown.",
+          false
+        ]
+      ]
+    },
+    "preds": {
+      "TT": [
+        true,
+        true
+      ],
+      "TF": [
+        false,
+        false
+      ],
+      "FT": [
+        false,
+        false
+      ],
+      "FF": [
+        false,
+        false
+      ]
+    },
+    "operative": "A AND B",
+    "articulations": [
+      "The label is **True** when the sentence begins with a lowercase letter (and these all happen to describe an animal), and **False** when it begins with a capital letter. The clearest single distinguishing feature is that True sentences start with a lowercase letter while False sentences start with an uppercase letter.",
+      "The label is **True** when the sentence begins with a lowercase letter (and these all happen to mention an animal); it's **False** when the sentence begins with a capital letter.",
+      "The label is **True** when the sentence is about an animal (and is written entirely in lowercase, beginning with a lowercase letter); it is **False** for human/everyday-activity sentences that begin with a capital letter. Both cues line up perfectly, so the rule is essentially: \"lowercase sentence describing an animal \u2192 True.\""
+    ]
+  },
+  "has_digit__alliteration": {
+    "a": "has_digit",
+    "b": "alliteration",
+    "art_a": "The sentence contains at least one digit.",
+    "art_b": "Every word in the sentence starts with the same letter.",
+    "test": {
+      "TT": [
+        [
+          "Tina took 2 tiny turtles today.",
+          true
+        ],
+        [
+          "Nina needs 4 new notebooks now.",
+          true
+        ]
+      ],
+      "TF": [
+        [
+          "I woke up at 6 and made coffee.",
+          false
+        ],
+        [
+          "She bought 3 apples from the market.",
+          false
+        ]
+      ],
+      "FT": [
+        [
+          "Big brown bears barely breathe.",
+          false
+        ],
+        [
+          "Sally sells sweet strawberries slowly.",
+          false
+        ]
+      ],
+      "FF": [
+        [
+          "She quickly grabbed her coat before leaving home.",
+          false
+        ],
+        [
+          "Please bring me a glass of cold water.",
+          false
+        ]
+      ]
+    },
+    "preds": {
+      "TT": [
+        true,
+        true
+      ],
+      "TF": [
+        false,
+        false
+      ],
+      "FT": [
+        false,
+        false
+      ],
+      "FF": [
+        false,
+        false
+      ]
+    },
+    "operative": "A AND B",
+    "articulations": [
+      "The label is **True** when the sentence is alliterative (nearly every word begins with the same letter, matching the subject's name) **and** contains a number; otherwise it's **False**.",
+      "The label is **True** when the sentence is alliterative\u2014nearly every word begins with the same letter\u2014and also contains a number; otherwise it is **False**.",
+      "The label is **True** when the sentence is alliterative\u2014nearly every word begins with the same letter\u2014and includes a number; otherwise it's **False**."
+    ]
+  },
+  "question__animal": {
+    "a": "question",
+    "b": "animal",
+    "art_a": "The sentence is a question (ends with '?').",
+    "art_b": "The sentence mentions an animal.",
+    "test": {
+      "TT": [
+        [
+          "Did the fox run across the road again?",
+          true
+        ],
+        [
+          "Have you ever seen an owl at night?",
+          true
+        ]
+      ],
+      "TF": [
+        [
+          "Did you finish your homework yet?",
+          false
+        ],
+        [
+          "Can you pass me the salt?",
+          false
+        ]
+      ],
+      "FT": [
+        [
+          "My neighbor's dog barks every morning when the mail arrives.",
+          false
+        ],
+        [
+          "We saw a hawk circling above the open field yesterday.",
+          false
+        ]
+      ],
+      "FF": [
+        [
+          "I forgot to bring my umbrella today.",
+          false
+        ],
+        [
+          "He fixed the leaky faucet in the kitchen.",
+          false
+        ]
+      ]
+    },
+    "preds": {
+      "TT": [
+        true,
+        true
+      ],
+      "TF": [
+        false,
+        false
+      ],
+      "FT": [
+        false,
+        false
+      ],
+      "FF": [
+        false,
+        false
+      ]
+    },
+    "operative": "A AND B",
+    "articulations": [
+      "The label is **True** whenever the sentence is a question (ends with \"?\") and **False** whenever it's a declarative statement. (Notably, all the questions also happen to mention an animal, but the question-mark distinction alone separates the two groups.)",
+      "The rule appears to be: the input is labeled **True** if it is a question (ends with a \"?\") that mentions an animal, and **False** if it is a declarative statement (which also never mentions an animal).",
+      "The label is **True** when the sentence is a question (ends in \"?\") that mentions an animal, and **False** when it's a declarative statement (which in these examples never involves animals)."
+    ]
+  },
+  "animal__alliteration": {
+    "a": "animal",
+    "b": "alliteration",
+    "art_a": "The sentence mentions an animal.",
+    "art_b": "Every word in the sentence starts with the same letter.",
+    "test": {
+      "TT": [
+        [
+          "Tiny turtles take time.",
+          true
+        ],
+        [
+          "Cats catch cute crabs.",
+          true
+        ]
+      ],
+      "TF": [
+        [
+          "The dog barked loudly at the mailman.",
+          false
+        ],
+        [
+          "A curious owl watched us from above.",
+          false
+        ]
+      ],
+      "FT": [
+        [
+          "Sara sang sweet songs softly.",
+          true
+        ],
+        [
+          "Big boys bought blue balloons.",
+          true
+        ]
+      ],
+      "FF": [
+        [
+          "Bring your jacket, it might rain.",
+          false
+        ],
+        [
+          "My coffee is getting cold.",
+          false
+        ]
+      ]
+    },
+    "preds": {
+      "TT": [
+        true,
+        true
+      ],
+      "TF": [
+        false,
+        false
+      ],
+      "FT": [
+        true,
+        true
+      ],
+      "FF": [
+        false,
+        false
+      ]
+    },
+    "operative": "B only",
+    "articulations": [
+      "The rule: an input is labeled **True** if every word in the sentence begins with the same letter (alliteration); otherwise it's **False**.",
+      "The label is **True** when every word in the sentence begins with the same letter (alliteration across all words), and **False** otherwise.",
+      "The rule is alliteration: an input is labeled **True** if every word begins with the same letter (sound), and **False** otherwise."
+    ]
+  },
+  "question__alliteration": {
+    "a": "question",
+    "b": "alliteration",
+    "art_a": "The sentence is a question (ends with '?').",
+    "art_b": "Every word in the sentence starts with the same letter.",
+    "test": {
+      "TT": [
+        [
+          "Will we walk Wednesday?",
+          true
+        ],
+        [
+          "Did Dad drive downtown?",
+          true
+        ]
+      ],
+      "TF": [
+        [
+          "Where did you put my keys?",
+          false
+        ],
+        [
+          "Can we meet for lunch today?",
+          true
+        ]
+      ],
+      "FT": [
+        [
+          "Big brown bears bring bananas.",
+          false
+        ],
+        [
+          "Sally sells sweet strawberries.",
+          false
+        ]
+      ],
+      "FF": [
+        [
+          "The children played outside all afternoon.",
+          false
+        ],
+        [
+          "He bought fresh bread today.",
+          false
+        ]
+      ]
+    },
+    "preds": {
+      "TT": [
+        true,
+        true
+      ],
+      "TF": [
+        false,
+        true
+      ],
+      "FT": [
+        false,
+        false
+      ],
+      "FF": [
+        false,
+        false
+      ]
+    },
+    "operative": "other(TT=True,TF=None,FT=False,FF=False)",
+    "articulations": [
+      "The rule appears to be: an input is labeled **True** if it is a question (interrogative sentence ending in \"?\"), and **False** if it is a declarative statement.\n\n(Notably, all the \"True\" examples are also alliterative yes/no questions beginning with an auxiliary verb, but the simplest determining feature is that they are questions rather than statements.)",
+      "The rule appears to be: a sentence is labeled **True if it is a question (interrogative sentence beginning with an auxiliary/modal verb)** and **False if it is a declarative statement**.",
+      "The label is **True** when the sentence is a question (interrogative, ending in \"?\") and **False** when it is a declarative statement."
+    ]
+  }
+}
