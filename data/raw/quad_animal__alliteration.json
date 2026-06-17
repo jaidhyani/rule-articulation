@@ -1,0 +1,50 @@
+{
+  "a": "animal",
+  "b": "alliteration",
+  "art_a": "The sentence mentions an animal.",
+  "art_b": "Every word in the sentence starts with the same letter.",
+  "TT": [
+    "Big bears bring berries.",
+    "Curious cats chase chickens.",
+    "Dogs dig deep ditches.",
+    "Foxes find fresh fish.",
+    "Gentle goats graze grass.",
+    "Happy hens hunt hard.",
+    "Lazy lions like lounging.",
+    "Many mice make messes.",
+    "Owls observe other owls.",
+    "Playful puppies pounce proudly.",
+    "Quick quails quietly quit.",
+    "Rabbits run round rocks.",
+    "Silly snakes slither slowly.",
+    "Tiny turtles travel together."
+  ],
+  "FF": [
+    "I really need a cup of coffee.",
+    "Please close the front door quietly.",
+    "We should leave before it gets dark.",
+    "My sister found her keys yesterday.",
+    "Let us meet at the corner store.",
+    "The bright morning sun feels warm.",
+    "Could you pass me that blue plate?",
+    "They walked home after the long game.",
+    "I forgot where I parked my car.",
+    "She baked fresh bread this afternoon.",
+    "Our neighbors planted flowers near the fence.",
+    "He fixed the broken chair quickly.",
+    "Turn off the lights when you leave.",
+    "We watched a great film last night."
+  ],
+  "TF": [
+    "The dog ran across the muddy yard.",
+    "An owl hooted softly in the dark forest.",
+    "We watched a salmon leap upstream today.",
+    "Her cat slept near the warm fireplace."
+  ],
+  "FT": [
+    "Sarah sings sweet songs softly.",
+    "Tom takes ten tiny tomatoes.",
+    "Peter packs pretty pink presents.",
+    "Bob bought big blue balloons."
+  ]
+}

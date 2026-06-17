@@ -1,0 +1,50 @@
+{
+  "a": "has_digit",
+  "b": "question",
+  "art_a": "The sentence contains at least one digit.",
+  "art_b": "The sentence is a question (ends with '?').",
+  "TT": [
+    "Can you meet me at 3 o'clock?",
+    "Did you buy 2 loaves of bread?",
+    "How much is 5 dollars in euros?",
+    "Were there 7 people at the party?",
+    "Is the bus arriving in 10 minutes?",
+    "Have you read those 4 chapters yet?",
+    "Can I get 6 apples, please?",
+    "Did the movie start at 8 tonight?",
+    "Are we leaving on June 15?",
+    "How many of the 12 cookies are left?",
+    "Will you call me after 9?",
+    "Did she score 3 goals today?",
+    "Is your flight at 7 in the morning?",
+    "Can we wait just 2 more minutes?"
+  ],
+  "FF": [
+    "I woke up early this morning and made a cup of coffee.",
+    "My sister called to say she would visit us next weekend.",
+    "The weather has been cold and rainy for the past few days.",
+    "We bought fresh vegetables and bread from the local market.",
+    "He forgot his umbrella at the office again yesterday.",
+    "The children played in the garden until it got dark.",
+    "I need to finish reading this book before the meeting tomorrow.",
+    "She planted some flowers near the front porch last spring.",
+    "Our neighbors invited us over for dinner on Friday evening.",
+    "The train was delayed by about twenty minutes this afternoon.",
+    "I always enjoy a quiet walk along the river after work.",
+    "My father taught me how to fix a flat tire when I was young.",
+    "We watched an old movie together and ate popcorn last night.",
+    "The bakery on the corner sells the best chocolate cake in town."
+  ],
+  "TF": [
+    "I woke up at 6 this morning feeling refreshed.",
+    "We have 3 cats and 2 dogs at home.",
+    "The store closes at 9 on weekdays.",
+    "I drank 2 cups of coffee before work."
+  ],
+  "FT": [
+    "Are you coming to the party tonight?",
+    "Did you remember to lock the door?",
+    "Can you pass me the salt, please?",
+    "What time should we leave tomorrow morning?"
+  ]
+}

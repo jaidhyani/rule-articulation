@@ -1,0 +1,50 @@
+{
+  "a": "lowercase",
+  "b": "question",
+  "art_a": "The sentence is written entirely in lowercase.",
+  "art_b": "The sentence is a question (ends with '?').",
+  "TT": [
+    "are you coming to the party tonight?",
+    "did you eat breakfast this morning?",
+    "can you pass me the salt please?",
+    "where did you put my keys?",
+    "how was your day at work?",
+    "do you want to grab some coffee later?",
+    "have you seen my phone anywhere?",
+    "what time should we leave tomorrow?",
+    "is it going to rain today?",
+    "why are you so quiet right now?",
+    "who is going to pick up the kids?",
+    "are we still meeting at noon?",
+    "did you finish your homework yet?",
+    "can we watch a movie tonight?"
+  ],
+  "FF": [
+    "The sun feels warm this morning.",
+    "My sister baked fresh bread today.",
+    "We walked along the river after lunch.",
+    "John forgot his umbrella at the office.",
+    "The cat slept on the soft couch all day.",
+    "I really enjoy reading before bed.",
+    "She painted the fence a bright blue.",
+    "Our neighbors planted tomatoes this spring.",
+    "The train arrived a few minutes late.",
+    "David fixed the broken kitchen faucet.",
+    "They watched a movie last night together.",
+    "My coffee got cold while I worked.",
+    "Anna sang quietly in the back garden.",
+    "The children built a sandcastle by the sea."
+  ],
+  "TF": [
+    "i need to buy some groceries after work today.",
+    "the coffee shop on the corner makes really good muffins.",
+    "my sister is coming to visit us next weekend.",
+    "it started raining just as i left the house."
+  ],
+  "FT": [
+    "Where did you put my keys?",
+    "Are you coming to the party tonight?",
+    "Did Sarah call you back yet?",
+    "How was your trip to Paris?"
+  ]
+}

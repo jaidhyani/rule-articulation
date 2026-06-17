@@ -1,0 +1,50 @@
+{
+  "a": "has_digit",
+  "b": "animal",
+  "art_a": "The sentence contains at least one digit.",
+  "art_b": "The sentence mentions an animal.",
+  "TT": [
+    "My 3 dogs ran across the yard this morning.",
+    "I saw 7 owls perched on the old fence last night.",
+    "We caught 2 salmon during our fishing trip yesterday.",
+    "The cat knocked over 4 cups before breakfast.",
+    "There were 5 horses grazing in the field at noon.",
+    "She adopted 1 puppy from the shelter on Saturday.",
+    "About 12 ducks swam past our boat near the dock.",
+    "My neighbor keeps 6 chickens in her backyard coop.",
+    "I spotted 3 rabbits hiding under the bushes today.",
+    "The zoo welcomed 2 baby elephants in 2023.",
+    "We counted 9 sheep on the hillside this afternoon.",
+    "His parrot learned 8 new words over the weekend.",
+    "A group of 15 deer crossed the road at dawn.",
+    "I fed 4 goldfish before leaving for school."
+  ],
+  "FF": [
+    "Please remember to buy some bread on your way home.",
+    "I think we should leave around seven in the morning.",
+    "She painted the kitchen a lovely shade of yellow.",
+    "My phone battery died right before the meeting started.",
+    "Let's grab a cup of coffee before work tomorrow.",
+    "The weather has been surprisingly warm for this time of year.",
+    "He forgot his umbrella, so he got soaked walking home.",
+    "We watched a great movie at the theater last night.",
+    "Could you please turn down the music a little?",
+    "I finally finished reading that book you recommended.",
+    "The bakery on the corner makes the best cinnamon rolls.",
+    "She studied all weekend for her final exams.",
+    "Our flight got delayed by almost three hours.",
+    "I really need to clean out the garage this weekend."
+  ],
+  "TF": [
+    "I woke up at 6 this morning feeling refreshed.",
+    "We need to buy 3 loaves of bread today.",
+    "The meeting got moved to 2 in the afternoon.",
+    "She turned 25 last weekend and threw a party."
+  ],
+  "FT": [
+    "The dog barked loudly at the mailman this morning.",
+    "Two cats curled up together on the warm windowsill.",
+    "An owl hooted softly somewhere in the dark forest.",
+    "She fed the horses some fresh hay before breakfast."
+  ]
+}

@@ -3,6 +3,11 @@ __pycache__/
 *.pyc
 .venv/
 venv/
-data/
 *.log
 .DS_Store
+
+# NOTE: data/ is deliberately committed (datasets + full call transcripts).
+# Vendoring raw data in-repo isn't usual practice, but this is a small (~6MB),
+# self-contained research artifact where the transcripts ARE the result — keeping
+# them next to the code makes the study reproducible and auditable in one clone.
+# Keep it simple: no LFS, no external bucket. .env stays ignored (secrets only).
