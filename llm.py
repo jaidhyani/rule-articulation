@@ -17,7 +17,11 @@ MODEL = "claude-opus-4-8"
 
 # --- load .env (no dependency on python-dotenv) ---
 def _load_env():
+    """Load .env if present; otherwise rely on the ambient environment
+    (e.g. ANTHROPIC_API_KEY exported directly)."""
     env = Path(__file__).with_name(".env")
+    if not env.exists():
+        return
     for line in env.read_text().splitlines():
         line = line.strip()
         if line and not line.startswith("#") and "=" in line:
@@ -25,6 +29,8 @@ def _load_env():
             os.environ.setdefault(k.strip(), v.strip())
 
 _load_env()
+if not os.environ.get("ANTHROPIC_API_KEY"):
+    raise SystemExit("ANTHROPIC_API_KEY not set (export it, or put it in a .env file next to llm.py).")
 _client = anthropic.Anthropic(max_retries=8)
 
 # --- full-transcript logging: every API call's request + response -> data/transcripts/<run>.jsonl ---

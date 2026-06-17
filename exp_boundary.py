@@ -19,6 +19,7 @@ def split(d):
 
 def run():
     import llm
+    llm.set_run("boundary")
     print(f"{'rule':<16} " + " ".join(f"k={k:<5}" for k in SHOTS))
     for rid in BOUNDARY_RULES:
         d = data.build_single(rid, per_class=40)

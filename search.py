@@ -61,6 +61,7 @@ def search(fam):
     return {"family": fam.name, "desc": fam.desc, "probed": res, "verdict": verdict}
 
 def main(names):
+    llm.set_run("search")
     out = {}
     for nm in names:
         print(f"== {nm}: {FAMILIES[nm].desc}", flush=True)

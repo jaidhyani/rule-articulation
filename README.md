@@ -20,16 +20,24 @@ tokens). A separate instance of the same model is used as generator/judge.
 | `exp_execution.py` | induction-vs-execution control (learn-from-examples vs told-the-rule) |
 | `exp_pairs.py` | two-rule decoy: behavior vs articulation on divergent quadrants |
 | `exp_suggest.py` | commit-then-reveal suggestion experiment (neutral vs congratulatory) |
+| `exp_articulate.py` | single-rule articulation, no-CoT, judged for correctness |
+| `reproduce.sh` | one-command reproduction harness (sets up the venv, runs any/all stages) |
 | `findings.md` | running results, framing notes, methodological endnotes |
 
-## Run
+## Reproduce
+
+Given an Anthropic API key:
 
 ```bash
-python3 -m venv .venv && .venv/bin/pip install anthropic
-echo "ANTHROPIC_API_KEY=sk-ant-..." > .env
-.venv/bin/python exp_suggest.py    # or any exp_*.py
+export ANTHROPIC_API_KEY=sk-ant-...   # or: echo "ANTHROPIC_API_KEY=sk-ant-..." > .env
+./reproduce.sh                        # prints the stage list + cost estimates (runs nothing)
+./reproduce.sh boundary articulate    # run specific stages
+./reproduce.sh all                    # full pipeline (the `suggest` stage alone is ~2200 Opus calls)
 ```
 
-Generated datasets, transcripts, and logs land under `data/` (gitignored).
+`reproduce.sh` creates `.venv` and installs `requirements.txt` on first run. Input datasets
+are committed under `data/raw/`, so reproduction re-runs the model **calls** on fixed inputs;
+full request+response transcripts are written to `data/transcripts/<run>.jsonl`. (`.env`,
+`.venv/`, and `*.log` are gitignored; `data/` is intentionally committed.)
 
 _Exploratory work; see `findings.md` for caveats and uncertainties._

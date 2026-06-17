@@ -51,6 +51,7 @@ def run_pair(a, b):
             "preds": preds, "operative": operative(preds), "articulations": arts}
 
 def main():
+    llm.set_run("pairs")
     # phase 1: build all quadrant datasets in parallel
     with cf.ThreadPoolExecutor(max_workers=5) as ex:
         list(ex.map(lambda p: build_quadrants(*p), PAIRS))

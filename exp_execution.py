@@ -36,6 +36,7 @@ def acc(preds, he):
     return sum(ok)/len(ok)
 
 def main():
+    llm.set_run("execution")
     print(f"{'family':<16} {'k':>2}  {'ICL':>5}  {'TOLD':>5}  gap")
     for nm, k in POINTS:
         fam = FAMILIES[nm]
