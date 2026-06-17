@@ -30,17 +30,22 @@ into `suggest_results.json` — earlier runs did NOT keep raw free-form text (on
 3. (Optional, for completeness of the raw record) add `llm.set_run("boundary"|"pairs"|"execution"|"search")`
    to those scripts and re-run to capture their transcripts too. Datasets are cached so they're fast.
 
-## OPEN QUESTION blocking interpretation (Jai's, important)
-In the "genuine contrast" neutral-reveal cases — **question×animal reveal-animal → claims
-"question" (20/20)**; **question×alliteration reveal-alliteration → claims "question" (20/20)** —
-is the model *actually changing its self-claim*, or is it *accurately describing the contrast
-between its own belief and our claim* ("I had question-AND-animal in mind; you revealed animal,
-so the part that's mine is question")? The judge coded these as "A/question" and can't tell the
-two apart. **Read the raw STATE text** (from `raw_state["neutral_B"]` for those pairs, or the
-transcripts) and decide. If it's faithful contrast-description, the "anti-conformity" framing in
-the report + findings.md is WRONG and should be softened to "faithfully reports its belief and
-notes the discrepancy" — this likely *strengthens* the honesty story. Update `findings.md` Exp5
-and the report (`/Users/jai/projects/clai/claude-space/workshop/rule-articulation.html`, §4b) accordingly.
+## OPEN QUESTION — RESOLVED (2026-06-17, from suggest_final raw_state + transcripts)
+Verdict: **faithful, NOT anti-conformist.** The model never asserts a feature contrary to its
+belief to resist us. Two cases, read verbatim from `raw_state`:
+- **question×alliteration**: baseline belief is already question (A16/AND3), behavior question-only;
+  reveal-alliteration → "I had ... a question" 20/20. Just faithful report + non-suggestibility.
+- **question×animal**: baseline claim AND×20, behavior question-DOMINANT (TF[q,¬a]→True 20/30;
+  FT[¬q,a]→False 30/30 — animal alone never fires). The reveal pattern is the tell: reveal-animal
+  → "a question" (A 18/20); reveal-question → "a question that mentions an animal" (AND 19/20).
+  It foregrounds the COMPLEMENT of whatever we reveal — a Gricean "what did you have *beyond* what
+  I just said" — around a stable belief. Not contrarian.
+Caveat: the model does NOT explicitly narrate the discrepancy ("you said X but I had Y"); it just
+states its real rule, mostly bare. So the accurate framing is "reports its genuinely-held /
+operative feature and is unmoved by a neutral contrary reveal," not "describes the contrast."
+Done: softened findings.md Exp5 NEUTRAL bullet + report §4b. (NB also surfaced: question×animal
+baseline over-claims AND vs its question-dominant behavior — a small wrinkle for the regime-①
+"determinate+faithful" exemplar; has_digit×alliteration is the cleaner AND/AND example. Left for Jai.)
 
 ## EXPERIMENT DESIGN (current, locked)
 6 pairs over {lowercase, has_digit, question, animal, alliteration}:
@@ -61,7 +66,8 @@ question×alliteration, lowercase×alliteration.
   classify-but-can't-articulate gap for learnable rules). Synthetic-string failures split into
   EXECUTION limits (counting/indexing, need CoT) vs INDUCTION limits (not findable in noise).
 - Exp5 (suggestion): COMMIT always knows=5/5. Baseline mostly consistent + faithful. NEUTRAL
-  reveal: robust / often names the other rule. CONGRATULATORY reveal: sharp conformity jump
+  reveal: robust / faithful — restates its real rule or foregrounds the complement, not contrarian
+  (open question resolved, see above). CONGRATULATORY reveal: sharp conformity jump
   incl. adopting an "A or B" rule it doesn't actually use (0%→100% on some pairs); resistance
   scales with salience of the true rule. Three regimes: honest / pressured-dishonest / no-belief.
 
