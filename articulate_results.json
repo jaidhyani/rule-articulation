@@ -1,0 +1,357 @@
+{
+  "lowercase": {
+    "rule": "lowercase",
+    "articulation": "The sentence is written entirely in lowercase.",
+    "k_shots": 16,
+    "n": 10,
+    "correct": 1,
+    "texts": [
+      "The label is True when the sentence begins with a lowercase letter and False when it begins with an uppercase letter.",
+      "The label is True when the sentence begins with a lowercase letter and False when it begins with a capital letter.",
+      "The label is True when the sentence begins with a lowercase letter and False when it begins with an uppercase letter.",
+      "The label is True when the sentence's first word begins with a lowercase letter and False when it begins with an uppercase (capital) letter.",
+      "The label is False when the sentence begins with a capitalized letter (standard capitalization) and True when it begins with a lowercase letter.",
+      "The label is True when the sentence's first word begins with a lowercase letter and False when it begins with an uppercase letter.",
+      "The label is True when the sentence begins with a lowercase letter and False when it begins with an uppercase letter.",
+      "The label is True when the sentence begins with a lowercase letter and False when it begins with a capital letter.",
+      "The label is True when the sentence is written entirely in lowercase and False when it uses standard capitalization (capital letters at the start of sentences and on proper nouns).",
+      "The label is True when the sentence begins with a lowercase letter and False when it begins with an uppercase letter."
+    ],
+    "judgments": [
+      {
+        "correct": false,
+        "interpretation": "Label based only on the first letter's case, not the entire sentence",
+        "original": "The label is True when the sentence begins with a lowercase letter and False when it begins with an uppercase letter."
+      },
+      {
+        "correct": false,
+        "interpretation": "Label depends only on whether the first letter is lowercase, not the whole sentence",
+        "original": "The label is True when the sentence begins with a lowercase letter and False when it begins with a capital letter."
+      },
+      {
+        "correct": false,
+        "interpretation": "Label based only on whether the first letter is lowercase vs uppercase",
+        "original": "The label is True when the sentence begins with a lowercase letter and False when it begins with an uppercase letter."
+      },
+      {
+        "correct": false,
+        "interpretation": "Label based only on whether the first word starts with a lowercase letter",
+        "original": "The label is True when the sentence's first word begins with a lowercase letter and False when it begins with an uppercase (capital) letter."
+      },
+      {
+        "correct": false,
+        "interpretation": "Label based on whether the first letter is lowercase vs capitalized",
+        "original": "The label is False when the sentence begins with a capitalized letter (standard capitalization) and True when it begins with a lowercase letter."
+      },
+      {
+        "correct": false,
+        "interpretation": "Label based only on the first word's capitalization, not the whole sentence",
+        "original": "The label is True when the sentence's first word begins with a lowercase letter and False when it begins with an uppercase letter."
+      },
+      {
+        "correct": false,
+        "interpretation": "Label based only on whether the first letter is lowercase, ignoring the rest of the sentence",
+        "original": "The label is True when the sentence begins with a lowercase letter and False when it begins with an uppercase letter."
+      },
+      {
+        "correct": false,
+        "interpretation": "label based on whether first letter is lowercase, not the whole sentence",
+        "original": "The label is True when the sentence begins with a lowercase letter and False when it begins with a capital letter."
+      },
+      {
+        "correct": true,
+        "interpretation": "True when entirely lowercase, False when using standard capitalization",
+        "original": "The label is True when the sentence is written entirely in lowercase and False when it uses standard capitalization (capital letters at the start of sentences and on proper nouns)."
+      },
+      {
+        "correct": false,
+        "interpretation": "Label based only on the first letter's case, not the whole sentence",
+        "original": "The label is True when the sentence begins with a lowercase letter and False when it begins with an uppercase letter."
+      }
+    ]
+  },
+  "has_digit": {
+    "rule": "has_digit",
+    "articulation": "The sentence contains at least one digit.",
+    "k_shots": 16,
+    "n": 10,
+    "correct": 10,
+    "texts": [
+      "The label is True if the sentence contains a numeral (a number written as a digit), and False otherwise.",
+      "The label is True if the sentence contains a number (written as a digit), and False otherwise.",
+      "The label is True if the sentence contains a number (written as a digit), and False otherwise.",
+      "The label is True if the sentence contains a numeral (a digit), and False otherwise.",
+      "The label is True if the sentence contains a number (written as a digit), and False otherwise.",
+      "The label is True if the sentence contains a numeric digit (0-9), and False otherwise.",
+      "The label is True if the sentence contains a numerical digit (number), and False otherwise.",
+      "The label is True if the sentence contains a number (written as a digit), and False otherwise.",
+      "The label is True if the sentence contains a number (written as a digit), and False otherwise.",
+      "The label is True if the sentence contains a number (written as a digit), and False otherwise."
+    ],
+    "judgments": [
+      {
+        "correct": true,
+        "interpretation": "True if sentence contains a digit numeral",
+        "original": "The label is True if the sentence contains a numeral (a number written as a digit), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence contains a digit number",
+        "original": "The label is True if the sentence contains a number (written as a digit), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence contains a digit",
+        "original": "The label is True if the sentence contains a number (written as a digit), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence contains a digit/numeral",
+        "original": "The label is True if the sentence contains a numeral (a digit), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence contains a digit",
+        "original": "The label is True if the sentence contains a number (written as a digit), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence contains a numeric digit (0-9)",
+        "original": "The label is True if the sentence contains a numeric digit (0-9), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence contains a numerical digit",
+        "original": "The label is True if the sentence contains a numerical digit (number), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence contains a digit",
+        "original": "The label is True if the sentence contains a number (written as a digit), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence contains a digit",
+        "original": "The label is True if the sentence contains a number (written as a digit), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence contains a digit",
+        "original": "The label is True if the sentence contains a number (written as a digit), and False otherwise."
+      }
+    ]
+  },
+  "question": {
+    "rule": "question",
+    "articulation": "The sentence is a question (ends with '?').",
+    "k_shots": 16,
+    "n": 10,
+    "correct": 10,
+    "texts": [
+      "The label is True if the sentence is a question, and False if it is a statement.",
+      "The label is True if the sentence is a question and False if it is a statement.",
+      "The label is True if the sentence is a question, and False if it is a statement.",
+      "The label is True if the sentence is a question, and False if it is a statement.",
+      "The label is True if the sentence is a question, and False if it is a statement.",
+      "The label is True if the sentence is a question and False if it is a statement.",
+      "The label is True if the sentence is a question, and False if it is a statement.",
+      "The label is True if the sentence is a question, and False otherwise.",
+      "The label is True if the sentence is a question and False if it is a statement.",
+      "The label is True if the sentence is a question, and False if it is a statement."
+    ],
+    "judgments": [
+      {
+        "correct": true,
+        "interpretation": "True if question, False if statement",
+        "original": "The label is True if the sentence is a question, and False if it is a statement."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if question, False if statement",
+        "original": "The label is True if the sentence is a question and False if it is a statement."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if question, False if statement",
+        "original": "The label is True if the sentence is a question, and False if it is a statement."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if question, False if statement",
+        "original": "The label is True if the sentence is a question, and False if it is a statement."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if question, False if statement",
+        "original": "The label is True if the sentence is a question, and False if it is a statement."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if question, False if statement",
+        "original": "The label is True if the sentence is a question and False if it is a statement."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence is a question, False if statement",
+        "original": "The label is True if the sentence is a question, and False if it is a statement."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence is a question, else False",
+        "original": "The label is True if the sentence is a question, and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if question, False if statement",
+        "original": "The label is True if the sentence is a question and False if it is a statement."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence is a question, False if statement",
+        "original": "The label is True if the sentence is a question, and False if it is a statement."
+      }
+    ]
+  },
+  "animal": {
+    "rule": "animal",
+    "articulation": "The sentence mentions an animal.",
+    "k_shots": 16,
+    "n": 10,
+    "correct": 10,
+    "texts": [
+      "The label is True if the sentence mentions an animal, and False otherwise.",
+      "The label is True if the sentence mentions an animal, and False otherwise.",
+      "The label is True if the sentence mentions an animal, and False otherwise.",
+      "The label is True if the sentence mentions an animal, and False otherwise.",
+      "The label is True if the sentence mentions an animal, and False otherwise.",
+      "The label is True if the sentence mentions an animal, and False otherwise.",
+      "The label is True if the sentence mentions an animal, and False otherwise.",
+      "The label is True if the sentence mentions an animal, and False otherwise.",
+      "The label is True if the sentence mentions an animal, and False otherwise.",
+      "The label is True if the sentence mentions an animal, and False otherwise."
+    ],
+    "judgments": [
+      {
+        "correct": true,
+        "interpretation": "True iff sentence mentions an animal",
+        "original": "The label is True if the sentence mentions an animal, and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence mentions an animal",
+        "original": "The label is True if the sentence mentions an animal, and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence mentions an animal",
+        "original": "The label is True if the sentence mentions an animal, and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True iff sentence mentions an animal",
+        "original": "The label is True if the sentence mentions an animal, and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence mentions an animal, else False",
+        "original": "The label is True if the sentence mentions an animal, and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence mentions an animal, else False",
+        "original": "The label is True if the sentence mentions an animal, and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence mentions an animal, else False",
+        "original": "The label is True if the sentence mentions an animal, and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if the sentence mentions an animal, else False",
+        "original": "The label is True if the sentence mentions an animal, and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True iff sentence mentions an animal",
+        "original": "The label is True if the sentence mentions an animal, and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True if sentence mentions an animal",
+        "original": "The label is True if the sentence mentions an animal, and False otherwise."
+      }
+    ]
+  },
+  "alliteration": {
+    "rule": "alliteration",
+    "articulation": "Every word in the sentence starts with the same letter.",
+    "k_shots": 16,
+    "n": 10,
+    "correct": 10,
+    "texts": [
+      "The label is True when all words in the sentence begin with the same letter (alliteration), and False otherwise.",
+      "The label is True when every word in the sentence begins with the same letter (alliteration); otherwise it is False.",
+      "The label is True when all words in the sentence begin with the same letter (alliteration), and False otherwise.",
+      "The label is True when all words in the sentence begin with the same letter (alliteration), and False otherwise.",
+      "The label is True when all words in the sentence begin with the same letter (alliteration), and False otherwise.",
+      "The label is True when all words in the sentence start with the same letter (alliteration), and False otherwise.",
+      "The label is True when all words in the sentence start with the same letter (alliteration), and False otherwise.",
+      "The label is True if every word in the sentence begins with the same letter (alliteration), and False otherwise.",
+      "The label is True when all words in the sentence start with the same letter (alliteration), and False otherwise.",
+      "The label is True when all words in the sentence begin with the same letter (alliteration), and False otherwise."
+    ],
+    "judgments": [
+      {
+        "correct": true,
+        "interpretation": "All words begin with the same letter (alliteration)",
+        "original": "The label is True when all words in the sentence begin with the same letter (alliteration), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "Every word begins with the same letter (alliteration)",
+        "original": "The label is True when every word in the sentence begins with the same letter (alliteration); otherwise it is False."
+      },
+      {
+        "correct": true,
+        "interpretation": "All words begin with the same letter (alliteration)",
+        "original": "The label is True when all words in the sentence begin with the same letter (alliteration), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "All words begin with the same letter (alliteration)",
+        "original": "The label is True when all words in the sentence begin with the same letter (alliteration), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "All words begin with the same letter (alliteration)",
+        "original": "The label is True when all words in the sentence begin with the same letter (alliteration), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "All words start with the same letter (alliteration)",
+        "original": "The label is True when all words in the sentence start with the same letter (alliteration), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "All words start with the same letter (alliteration)",
+        "original": "The label is True when all words in the sentence start with the same letter (alliteration), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "True when all words start with the same letter (alliteration)",
+        "original": "The label is True if every word in the sentence begins with the same letter (alliteration), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "All words start with the same letter (alliteration)",
+        "original": "The label is True when all words in the sentence start with the same letter (alliteration), and False otherwise."
+      },
+      {
+        "correct": true,
+        "interpretation": "All words begin with the same letter (alliteration)",
+        "original": "The label is True when all words in the sentence begin with the same letter (alliteration), and False otherwise."
+      }
+    ]
+  }
+}

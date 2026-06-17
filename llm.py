@@ -174,6 +174,40 @@ def judge_response(text, a_def, b_def, effort="low"):
         cat, interp = "OTHER", "judge parse failure: " + raw[:120]
     return {"category": cat, "interpretation": interp, "original": text}
 
+_ART_JUDGE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "correct": {"type": "boolean"},
+        "interpretation": {"type": "string"},
+    },
+    "required": ["correct", "interpretation"],
+    "additionalProperties": False,
+}
+
+def judge_articulation(text, rule_articulation, effort="low"):
+    """Does a free-form rule statement correctly capture the target rule (same
+    True/False partition)? Returns {correct, interpretation, original}."""
+    q = (f"Target rule: {rule_articulation}\n\n"
+         f"Someone was asked to state the single classification rule they inferred from "
+         f"labeled examples. They said:\n\"{text}\"\n\n"
+         "Does their statement correctly capture the target rule — i.e. would it sort inputs "
+         "into the same True/False partition? Minor wording differences are fine; what matters "
+         "is that the criterion is the same. Set 'correct' = true if it matches, false otherwise. "
+         "Give 'interpretation' as a short phrase describing what they actually said.")
+    resp = _create(
+        model=MODEL, max_tokens=1500, thinking={"type": "adaptive"},
+        output_config={"effort": effort, "format": {"type": "json_schema", "schema": _ART_JUDGE_SCHEMA}},
+        messages=[{"role": "user", "content": q}],
+    )
+    import json as _json
+    raw = next((b.text for b in resp.content if b.type == "text"), "{}")
+    try:
+        d = _json.loads(raw)
+        return {"correct": bool(d.get("correct", False)),
+                "interpretation": d.get("interpretation", ""), "original": text}
+    except Exception:
+        return {"correct": False, "interpretation": "judge parse failure: " + raw[:120], "original": text}
+
 def chat_structured(messages, schema, system=None, max_tokens=300):
     """Multi-turn call constrained to a JSON schema, thinking disabled. Returns parsed dict.
     Used wherever a free token stream could leak hints into the conversation."""

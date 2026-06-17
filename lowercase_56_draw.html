@@ -1,0 +1,148 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>lowercase — the 56% draw (seed2)</title>
+<style>
+:root{--paper:#f6f1e7;--panel:#fffdf8;--ink:#22201c;--muted:#6f675b;--line:#e2d9c8;
+--terra:#c2613f;--teal:#2f7e7b;--good:#2f7e7b;--bad:#c2613f;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding:40px 24px 80px}
+h1{font-size:30px;margin:0 0 6px}
+.dek{color:var(--muted);font-size:17px;margin:0 0 24px}
+.kicker{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.08em;
+text-transform:uppercase;color:var(--terra);margin-bottom:10px}
+h2{font-size:19px;margin:34px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:120px}
+.stat .big{font-size:30px;font-weight:700;color:var(--terra);line-height:1}
+.stat .lbl{font-size:12.5px;color:var(--muted);margin-top:4px}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--teal);
+border-radius:8px;padding:14px 16px;margin:14px 0;font-size:15px}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.shot{display:flex;gap:10px;align-items:baseline;background:var(--panel);border:1px solid var(--line);
+border-radius:8px;padding:8px 11px;font-family:ui-monospace,Menlo,monospace;font-size:13px}
+.shot .tag{font-weight:700;font-size:11px;min-width:42px}
+.shot.t .tag{color:var(--teal)} .shot.f .tag{color:var(--terra)}
+.shot .txt{word-break:break-word}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:ui-monospace,Menlo,monospace;font-size:11px;text-transform:uppercase;
+letter-spacing:.05em;color:var(--muted)}
+td.num{color:var(--muted);font-variant-numeric:tabular-nums;width:32px}
+td.q{font-family:ui-monospace,Menlo,monospace;font-size:13px;word-break:break-word}
+td.c{white-space:nowrap;color:var(--muted);font-size:13px}
+td.m{text-align:center;font-weight:700;width:36px}
+tr.bad{background:#f7e7df} tr.bad td.m{color:var(--bad)} tr.ok td.m{color:var(--good)}
+tr.bad td.q{font-weight:600}
+.cap{background:var(--terra);color:#fff;border-radius:3px;padding:0 2px;font-weight:700}
+.legend{font-size:13px;color:var(--muted);margin:6px 0 0}
+</style></head><body><div class="wrap">
+<div class="kicker">rule-articulation · diagnostic</div>
+<h1>"entirely lowercase" — the shot draw that collapsed to 56%</h1>
+<p class="dek">Content-controlled lowercase set (case isolated from register/content). Nonthinking
+Opus 4.8, k=16 few-shot, single token label. Seed-2 draw. Red = an actual uppercase letter.</p>
+
+<div class="stats">
+<div class="stat"><div class="big">36/64</div><div class="lbl">overall correct (56%)</div></div>
+<div class="stat"><div class="big">23/32</div><div class="lbl">lowercase items called lowercase</div></div>
+<div class="stat"><div class="big">19/32</div><div class="lbl">has-capital items it <b>missed</b> (called lowercase)</div></div>
+<div class="stat"><div class="big">13/32</div><div class="lbl">has-capital items caught</div></div>
+</div>
+
+<div class="note"><b>Failure mode:</b> of the 28 errors, <b>19</b> are has-capital sentences
+the model called "lowercase" (it <b>missed an internal capital</b>) and <b>9</b> are lowercase
+sentences it called "has-capital." When the rule is isolated to "is there <i>any</i> uppercase
+letter," nonthinking single-pass classification mostly fails by <b>overlooking a single capital
+letter</b> buried in a proper noun — exactly the kind of serial scan that benefits from reasoning.</div>
+
+<h2>The 16 shots it learned from (seed 2)</h2>
+<div class="shots">
+<div class="shot f"><span class="tag">False</span><span class="txt">we&#x27;re driving to <span class="cap">S</span>eattle for the holidays.</span></div>
+<div class="shot t"><span class="tag">True</span><span class="txt">the kids are excited about christmas already.</span></div>
+<div class="shot t"><span class="tag">True</span><span class="txt">linda is starting her new job in march.</span></div>
+<div class="shot t"><span class="tag">True</span><span class="txt">he spent the whole summer in greece.</span></div>
+<div class="shot f"><span class="tag">False</span><span class="txt">i love how quiet the streets are on <span class="cap">S</span>unday mornings.</span></div>
+<div class="shot t"><span class="tag">True</span><span class="txt">we&#x27;re driving to chicago this weekend.</span></div>
+<div class="shot t"><span class="tag">True</span><span class="txt">the train to manchester leaves at noon.</span></div>
+<div class="shot f"><span class="tag">False</span><span class="txt">linda always brings cookies on <span class="cap">M</span>ondays.</span></div>
+<div class="shot f"><span class="tag">False</span><span class="txt">daniel and <span class="cap">L</span>isa are getting married in <span class="cap">M</span>ay.</span></div>
+<div class="shot t"><span class="tag">True</span><span class="txt">she sent postcards from greece to everyone.</span></div>
+<div class="shot t"><span class="tag">True</span><span class="txt">i&#x27;ll text you when i get to the airport.</span></div>
+<div class="shot f"><span class="tag">False</span><span class="txt">did you see the game on <span class="cap">W</span>ednesday night?</span></div>
+<div class="shot t"><span class="tag">True</span><span class="txt">did you hear that apple released a new phone?</span></div>
+<div class="shot f"><span class="tag">False</span><span class="txt">they opened a new restaurant in <span class="cap">C</span>hicago.</span></div>
+<div class="shot f"><span class="tag">False</span><span class="txt">we&#x27;re throwing <span class="cap">S</span>teve a surprise party on <span class="cap">F</span>riday.</span></div>
+<div class="shot f"><span class="tag">False</span><span class="txt">we flew to <span class="cap">J</span>apan last <span class="cap">M</span>arch for the cherry blossoms.</span></div>
+</div>
+
+<h2>All 64 held-out queries — prediction vs. truth</h2>
+<p class="legend">Rows shaded when wrong. "truth" = does it contain any uppercase letter (red).</p>
+<table><thead><tr><th>#</th><th>query</th><th>truth</th><th>predicted</th><th></th></tr></thead>
+<tbody>
+<tr class="bad"><td class="num">1</td><td class="q">my cousin lives in <span class="cap">T</span>oronto with her kids.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">2</td><td class="q">he always orders the same coffee at starbucks.</td><td class="c">lowercase</td><td class="c">has-capital</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">3</td><td class="q">we watched the sunset over <span class="cap">S</span>ydney <span class="cap">H</span>arbor.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">4</td><td class="q">they flew home to india for the festival.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">5</td><td class="q">marcus left for tokyo early this morning.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">6</td><td class="q">i can&#x27;t believe it&#x27;s already <span class="cap">D</span>ecember.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">7</td><td class="q">the flight from <span class="cap">D</span>ubai was delayed again.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">8</td><td class="q">my sister works for <span class="cap">G</span>oogle in <span class="cap">C</span>alifornia.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">9</td><td class="q">we hiked through the mountains in colorado.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">10</td><td class="q">my brother works for google in california.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">11</td><td class="q">you left your keys at rachel&#x27;s house.</td><td class="c">lowercase</td><td class="c">has-capital</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">12</td><td class="q">did you finish the report before monday?</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">13</td><td class="q">he bought a new phone from <span class="cap">A</span>pple yesterday.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">14</td><td class="q">she loves shopping in downtown <span class="cap">S</span>eattle.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">15</td><td class="q">jessica texted me about the party on <span class="cap">S</span>aturday.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">16</td><td class="q">they opened a new amazon warehouse near dallas.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">17</td><td class="q">we&#x27;re hosting a barbecue this <span class="cap">S</span>unday.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">18</td><td class="q">you should call your mom on sunday.</td><td class="c">lowercase</td><td class="c">has-capital</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">19</td><td class="q">i bought these shoes in milan years ago.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">20</td><td class="q">did you remember to call aunt sarah on thursday?</td><td class="c">lowercase</td><td class="c">has-capital</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">21</td><td class="q">peter teaches history at a school in leeds.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">22</td><td class="q">she grew up in a small town near boston.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">23</td><td class="q">tom never misses a <span class="cap">L</span>iverpool match.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">24</td><td class="q">i really need a vacation in hawaii.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">25</td><td class="q">i can&#x27;t wait to visit <span class="cap">S</span>arah in <span class="cap">B</span>oston next weekend.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">26</td><td class="q">i saw <span class="cap">L</span>aura at the gym this morning.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">27</td><td class="q">he grew up in a small town outside berlin.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">28</td><td class="q">we celebrated new year&#x27;s in sydney.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">29</td><td class="q">they moved back to <span class="cap">M</span>exico after college.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">30</td><td class="q">i think daniel forgot his umbrella again.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">31</td><td class="q">did rachel say when she&#x27;s arriving?</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">32</td><td class="q">we grabbed lunch near the office in <span class="cap">T</span>oronto.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">33</td><td class="q">i think nina is allergic to peanuts.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">34</td><td class="q">they moved from mexico to canada last year.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">35</td><td class="q">did <span class="cap">M</span>ichael ever finish reading that book?</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">36</td><td class="q">my flight to <span class="cap">B</span>oston was canceled.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">37</td><td class="q">i bought these shoes at nike during the sale.</td><td class="c">lowercase</td><td class="c">has-capital</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">38</td><td class="q">she always smiles when she talks about rome.</td><td class="c">lowercase</td><td class="c">has-capital</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">39</td><td class="q">the weather in norway was freezing.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">40</td><td class="q">jason moved to <span class="cap">A</span>ustralia for a new job.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">41</td><td class="q">did you finish reading that book by tuesday?</td><td class="c">lowercase</td><td class="c">has-capital</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">42</td><td class="q">we&#x27;re learning <span class="cap">F</span>rench before our trip to <span class="cap">L</span>yon.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">43</td><td class="q">can you believe <span class="cap">R</span>achel quit her job?</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">44</td><td class="q">i met emma at the train station yesterday.</td><td class="c">lowercase</td><td class="c">has-capital</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">45</td><td class="q">he&#x27;s been learning <span class="cap">S</span>panish since <span class="cap">J</span>anuary.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">46</td><td class="q">sophia sent me a postcard from rome.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">47</td><td class="q">i can&#x27;t wait to visit <span class="cap">T</span>okyo next spring.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">48</td><td class="q">they watched the parade in san francisco.</td><td class="c">lowercase</td><td class="c">has-capital</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">49</td><td class="q">why is everyone so excited about friday?</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">50</td><td class="q">please remind <span class="cap">S</span>ophie about the meeting.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">51</td><td class="q">you should try the new café on <span class="cap">M</span>ain <span class="cap">S</span>treet.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">52</td><td class="q">my cousin lives just outside dublin.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">53</td><td class="q">they flew to <span class="cap">S</span>pain for the holidays.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">54</td><td class="q">did you hear that mike is moving to texas?</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">55</td><td class="q">he plays guitar in a band in nashville.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">56</td><td class="q">my parents are flying to <span class="cap">I</span>taly in <span class="cap">J</span>une.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">57</td><td class="q">you really should try the pizza at <span class="cap">M</span>ario&#x27;s place.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">58</td><td class="q">the kids are off school in <span class="cap">J</span>uly.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">59</td><td class="q">it rained all afternoon in <span class="cap">P</span>ortland.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">60</td><td class="q">he always orders the same coffee at <span class="cap">C</span>osta.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+<tr class="ok"><td class="num">61</td><td class="q">we had dinner at that italian place again.</td><td class="c">lowercase</td><td class="c">lowercase</td><td class="m">✓</td></tr>
+<tr class="bad"><td class="num">62</td><td class="q">i started reading that book in <span class="cap">A</span>pril.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="bad"><td class="num">63</td><td class="q">i&#x27;m meeting <span class="cap">K</span>aren for lunch tomorrow.</td><td class="c">has-capital</td><td class="c">lowercase</td><td class="m">✗</td></tr>
+<tr class="ok"><td class="num">64</td><td class="q">peter и <span class="cap">I</span> used to play soccer every <span class="cap">S</span>unday.</td><td class="c">has-capital</td><td class="c">has-capital</td><td class="m">✓</td></tr>
+</tbody></table>
+</div></body></html>

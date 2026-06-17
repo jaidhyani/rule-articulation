@@ -33,8 +33,13 @@ class Rule:
 RULES = {r.id: r for r in [
     Rule("lowercase",
          "The sentence is written entirely in lowercase.",
-         "Every sentence is written entirely in lowercase letters, with no capital letters anywhere.",
-         "Every sentence contains at least one capital letter (e.g. a capitalized first word or name).",
+         "Every sentence is written entirely in lowercase letters, with NO capital letters anywhere. "
+         "Vary the ending punctuation: about half should end with a period, question mark, or "
+         "exclamation point, and about half with no terminal punctuation at all.",
+         "Every sentence contains at least one capital letter somewhere. Vary the form so the capital "
+         "is not always first: roughly half should start with a capital letter, and roughly half should "
+         "begin with a lowercase word and place the capital later (e.g. a name or place mid-sentence, "
+         "like 'i ran into Maria downtown'). Also vary ending punctuation: some with a period, some none.",
          check=lambda s: any(c.isalpha() for c in s) and s == s.lower()),
     Rule("has_digit",
          "The sentence contains at least one digit.",

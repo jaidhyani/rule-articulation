@@ -1,0 +1,74 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>lowercase — what Opus 4.8 gets wrong</title>
+<style>
+:root{--paper:#f6f1e7;--panel:#fffdf8;--ink:#22201c;--muted:#6f675b;--line:#e2d9c8;
+--terra:#c2613f;--teal:#2f7e7b;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+.wrap{max-width:920px;margin:0 auto;padding:40px 24px 80px}
+.kicker{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.08em;
+text-transform:uppercase;color:var(--terra);margin-bottom:10px}
+h1{font-size:29px;margin:0 0 6px}
+.dek{color:var(--muted);font-size:16.5px;margin:0 0 22px}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 8px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:130px}
+.stat .big{font-size:28px;font-weight:700;color:var(--terra);line-height:1}
+.stat .lbl{font-size:12.5px;color:var(--muted);margin-top:4px}
+h2{font-size:18px;margin:32px 0 6px}
+.sub{color:var(--muted);font-size:14.5px;margin:0 0 14px}
+.item{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:11px 14px;margin:9px 0}
+.item .meta{display:flex;gap:12px;margin-bottom:6px}
+.rate{font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:700;color:var(--terra)}
+.caps{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--muted)}
+.item .q{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;word-break:break-word}
+.cap{background:var(--terra);color:#fff;border-radius:3px;padding:0 2px;font-weight:700}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--teal);
+border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+</style></head><body><div class="wrap">
+<div class="kicker">rule-articulation · diagnostic</div>
+<h1>"entirely lowercase" — what Opus 4.8 (no reasoning) gets wrong</h1>
+<p class="dek">Round-3 set: long sentences (~23 words), each with multiple would-be-capitalized
+words; negatives in natural form. 5 shot draws, k=16, single-token label. Red = a real
+uppercase letter in the text.</p>
+
+<div class="stats">
+<div class="stat"><div class="big">25/320</div><div class="lbl">classifications wrong (7.8%)</div></div>
+<div class="stat"><div class="big">20/80</div><div class="lbl">distinct sentences wrong &ge;1&times;</div></div>
+<div class="stat"><div class="big">11</div><div class="lbl">capital-bearing sentences called "lowercase"</div></div>
+<div class="stat"><div class="big">9</div><div class="lbl">all-lowercase sentences called "has-capital"</div></div>
+</div>
+
+<div class="note"><b>The model isn't reading the glyphs — it's judging by content.</b> On long,
+proper-noun-dense sentences it (a) <b>overlooks real capital letters</b> that are right there,
+and (b) <b>false-alarms on all-lowercase sentences</b> packed with names/places it expects to be
+capitalized. Both are consistent with pattern-matching on register, not a character-level scan.</div>
+
+<h2>① Misses capitals that are right there</h2>
+<p class="sub">Truth = has-capital (red letters present), but the model said "entirely lowercase."</p>
+<div class="item"><div class="meta"><span class="rate">2/4 wrong</span><span class="caps">6 real capitals</span></div><div class="q"><span class="cap">H</span>onestly, you and <span class="cap">B</span>rian should have called <span class="cap">V</span>ictoria before booking the <span class="cap">M</span>arriott in <span class="cap">M</span>iami, because she knows every cheap hotel along the <span class="cap">F</span>lorida coast.</div></div>
+<div class="item"><div class="meta"><span class="rate">2/5 wrong</span><span class="caps">6 real capitals</span></div><div class="q"><span class="cap">Y</span>ou should congratulate <span class="cap">P</span>atrick because he convinced <span class="cap">S</span>potify to hire him in <span class="cap">S</span>tockholm, and now he moves there with <span class="cap">J</span>ulia right after <span class="cap">C</span>hristmas.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/3 wrong</span><span class="caps">6 real capitals</span></div><div class="q"><span class="cap">C</span>ould you tell <span class="cap">V</span>ictoria that <span class="cap">Z</span>ara opened a flagship store in <span class="cap">R</span>ome, because <span class="cap">A</span>ntonio promised to meet her there next <span class="cap">M</span>onday?</div></div>
+<div class="item"><div class="meta"><span class="rate">1/4 wrong</span><span class="caps">6 real capitals</span></div><div class="q"><span class="cap">G</span>randmother always baked apple pie on <span class="cap">S</span>undays, and little <span class="cap">S</span>am would help her while <span class="cap">G</span>randpa watched golf and cheered for <span class="cap">T</span>iger <span class="cap">W</span>oods on television.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/4 wrong</span><span class="caps">6 real capitals</span></div><div class="q"><span class="cap">Y</span>ou really must visit the museum that <span class="cap">C</span>laudia recommended in <span class="cap">V</span>ienna, especially since <span class="cap">F</span>elix said <span class="cap">M</span>ozart performed there centuries ago in <span class="cap">D</span>ecember.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/4 wrong</span><span class="caps">6 real capitals</span></div><div class="q"><span class="cap">T</span>hey quietly celebrated <span class="cap">D</span>iwali in <span class="cap">M</span>umbai with <span class="cap">P</span>riya&#x27;s family, lighting lamps on the balcony and sharing sweets that <span class="cap">G</span>randmother had prepared since <span class="cap">W</span>ednesday.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/4 wrong</span><span class="caps">6 real capitals</span></div><div class="q"><span class="cap">I</span> promised <span class="cap">G</span>race that we would meet outside the <span class="cap">W</span>almart in <span class="cap">H</span>ouston on <span class="cap">F</span>riday, but the storm rolling in from <span class="cap">T</span>exas changed all our plans.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/5 wrong</span><span class="caps">6 real capitals</span></div><div class="q"><span class="cap">I</span> gently reminded <span class="cap">C</span>harlotte that <span class="cap">T</span>esla deliveries in <span class="cap">O</span>slo usually slow down each <span class="cap">J</span>anuary, so she shouldn&#x27;t expect her car before the <span class="cap">N</span>orwegian holidays end.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/5 wrong</span><span class="caps">7 real capitals</span></div><div class="q"><span class="cap">D</span>id <span class="cap">N</span>icole actually meet <span class="cap">B</span>eyoncé backstage in <span class="cap">L</span>as <span class="cap">V</span>egas, or did <span class="cap">S</span>teven just imagine that whole story he shared with us <span class="cap">F</span>riday?</div></div>
+<div class="item"><div class="meta"><span class="rate">1/5 wrong</span><span class="caps">6 real capitals</span></div><div class="q"><span class="cap">W</span>e bought groceries at <span class="cap">T</span>arget in <span class="cap">P</span>hoenix before <span class="cap">N</span>athan suggested watching a <span class="cap">C</span>owboys game, which thrilled <span class="cap">D</span>iana the entire long weekend.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/5 wrong</span><span class="caps">7 real capitals</span></div><div class="q"><span class="cap">Y</span>ou won&#x27;t believe how <span class="cap">J</span>ames convinced <span class="cap">S</span>ofia to move from <span class="cap">B</span>arcelona to <span class="cap">A</span>msterdam, just so they could both work for <span class="cap">S</span>potify by <span class="cap">J</span>anuary.</div></div>
+
+<h2>② False-alarms on genuinely all-lowercase text</h2>
+<p class="sub">Truth = entirely lowercase (zero capitals), but the model said "has a capital" —
+fooled by lowercased proper nouns.</p>
+<div class="item"><div class="meta"><span class="rate">3/4 wrong</span><span class="caps">0 real capitals</span></div><div class="q">on monday morning, sarah flew from london to tokyo with emirates, hoping to finalize the samsung deal before her boss, mr. thompson, returned from paris.</div></div>
+<div class="item"><div class="meta"><span class="rate">2/5 wrong</span><span class="caps">0 real capitals</span></div><div class="q">they insisted that walt disney built his first studio in hollywood, though pixar later transformed animation from its quiet headquarters near oakland entirely.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/3 wrong</span><span class="caps">0 real capitals</span></div><div class="q">we celebrated thanksgiving in denver with aunt patricia, watching the broncos lose on sunday and ordering pizza from domino&#x27;s because the turkey burned badly.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/3 wrong</span><span class="caps">0 real capitals</span></div><div class="q">we met jennifer at a starbucks near times square in new york, where she explained how amazon planned to expand across texas this december.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/4 wrong</span><span class="caps">0 real capitals</span></div><div class="q">last november, robert and i drove from toronto to montreal in a battered honda, listening to spotify playlists that anna had made for us.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/4 wrong</span><span class="caps">0 real capitals</span></div><div class="q">she insisted that adidas sponsored the marathon in boston, but kevin swore he saw nike banners everywhere when he ran past fenway park.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/5 wrong</span><span class="caps">0 real capitals</span></div><div class="q">did you notice that reebok sponsored the marathon in nairobi, and that joseph finished ahead of grace despite training only since april?</div></div>
+<div class="item"><div class="meta"><span class="rate">1/5 wrong</span><span class="caps">0 real capitals</span></div><div class="q">they were thrilled when ferrari unveiled the new model in milan, and marco immediately called his friend giulia to share the exciting news.</div></div>
+<div class="item"><div class="meta"><span class="rate">1/5 wrong</span><span class="caps">0 real capitals</span></div><div class="q">did patricia mention that her brother george moved to amsterdam in april, joining a small startup that competes directly with uber across northern europe?</div></div>
+</div></body></html>
